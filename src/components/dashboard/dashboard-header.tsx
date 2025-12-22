@@ -56,7 +56,7 @@ export function DashboardHeader({ userName, userEmail, userImage }: DashboardHea
                 >
                     <Button
                         onClick={handleLogout}
-                        variant="outline"
+                        // variant="outline"
                         size="sm"
                         className="group relative overflow-hidden border-destructive/20 bg-destructive/5 hover:bg-destructive hover:text-destructive-foreground"
                     >
