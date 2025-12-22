@@ -15,5 +15,9 @@ export const auth = betterAuth({
     emailAndPassword: {
         enabled: true
     },
+    trustedOrigins: [
+        "https://ai-focus-todo.vercel.app",
+        "http://localhost:3000"
+    ],
     // Add other providers or plugins here as needed
 });
