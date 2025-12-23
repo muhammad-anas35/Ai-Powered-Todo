@@ -26,12 +26,13 @@ A premium, full-stack Todo application featuring a modern, responsive user inter
 -   **Schema Management**: Drizzle Kit
 
 ### AI Layer (The "Brain")
--   **Agent Standard**: OpenAI Agents (Autonomous, Tool-Using)
+-   **Agent Standard**: Official OpenAI Agents SDK
+-   **Package**: `@openai/agents`
 -   **Model**: OpenAI GPT-4o
--   **Orchestrator**: Vercel AI SDK (managing the Tool-Call Loop / `maxSteps`)
+-   **Orchestration**: Native Agent Workflow (Handoffs, Guardrails)
 -   **Stack Binding**:
-    -   **Tools**: Mapped 1:1 to Type-Safe Server Actions.
-    -   **State**: Managed via Client-Side `useChat` hook (ephemeral) or DB (persistent).
+    -   **Tools**: Bound via SDK `tools` definition.
+    -   **State**: Managed via SDK's built-in session handling.
 
 ## 3. Architecture
 

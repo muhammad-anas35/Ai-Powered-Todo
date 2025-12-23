@@ -19,6 +19,7 @@ Build a visual, interactive, and persistent Todo application. "Front end" for th
 #### [NEW] /
 -   `create-next-app` (TypeScript, Tailwind, ESLint).
 -   Install `drizzle-orm`, `better-auth`, `@neondatabase/serverless`.
+-   Install `@openai/agents` (Official SDK).
 
 ### 3. Database Layer (The Foundation)
 #### [NEW] src/db/
