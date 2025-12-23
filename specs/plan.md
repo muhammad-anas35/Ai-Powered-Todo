@@ -13,6 +13,7 @@ Build a visual, interactive, and persistent Todo application. "Front end" for th
 ### 1. Agent & Skill Setup
 -   **Refine** `.claude/agents/*.md` to explicitly target Full Stack roles.
 -   **Refine** `.claude/skills/*.md` to include specific tech stack patterns.
+-   **Define** OpenAI Agent Orchestration parameters (System Prompt, Max Steps).
 
 ### 2. Project Initialization
 #### [NEW] /
@@ -62,3 +63,8 @@ Build a visual, interactive, and persistent Todo application. "Front end" for th
 2.  **Auth Check**: Signup flow, Login flow.
 3.  **Data Check**: Add a todo. Refresh page. Is it still there?
 4.  **DB Check**: Inspect Neon console.
+
+### AI Verification
+1.  **Chat Check**: Open widget. Say "Create a task to buy milk".
+2.  **Tool Check**: Verify task appears in list.
+3.  **Safety Check**: Verify AI cannot access data without login.

@@ -32,6 +32,13 @@
 -   **Streaming**: Use `Suspense` and `loading.tsx` to handle async data fetching states gracefully.
 -   **Font Optimization**: Use `next/font` for zero layout shift.
 
+### VI. OpenAI Agents & Orchestration
+**Standardized, Orchestrated, and Binded.**
+-   **Agent Definition**: Agents are "OpenAI Agents" defined by their **System Prompt** and **Tool Set**. Do not build custom cognitive architectures; use the model's native capabilities.
+-   **Orchestration**: Use the Vercel AI SDK's `maxSteps` to orchestrate multi-step autonomous workflows. Do not manually recurse.
+-   **Stack Binding**: Tools must be strictly bound to Server Actions. The Orchestrator (Vercel SDK) manages the round-trip between the Client, the Model, and the Backend Tools.
+-   **Authorization**: The Orchestrator MUST enforce the user's session context on every tool invocation.
+
 ## Development Workflow
 
 ### 1. Planning Phase (SDD)

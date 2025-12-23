@@ -25,6 +25,14 @@ A premium, full-stack Todo application featuring a modern, responsive user inter
 -   **ORM**: Drizzle ORM
 -   **Schema Management**: Drizzle Kit
 
+### AI Layer (The "Brain")
+-   **Agent Standard**: OpenAI Agents (Autonomous, Tool-Using)
+-   **Model**: OpenAI GPT-4o
+-   **Orchestrator**: Vercel AI SDK (managing the Tool-Call Loop / `maxSteps`)
+-   **Stack Binding**:
+    -   **Tools**: Mapped 1:1 to Type-Safe Server Actions.
+    -   **State**: Managed via Client-Side `useChat` hook (ephemeral) or DB (persistent).
+
 ## 3. Architecture
 
 ### 3.1 Directory Structure
@@ -36,9 +44,11 @@ A premium, full-stack Todo application featuring a modern, responsive user inter
 │   ├── components/         # React Components (UI Building Blocks)
 │   │   ├── ui/             # Generic, reusable UI atoms
 │   │   └── todo/           # Feature-specific components
+│   │   └── ai/             # AI-related components
 │   ├── db/                 # Database configuration & schema
 │   ├── lib/                # Shared utilities & auth config
 │   └── server/             # Server actions (Backend Logic)
+│       └── ai/             # AI Tool definitions (Safe & Isolated)
 ├── public/                 # Static assets
 ```
 
