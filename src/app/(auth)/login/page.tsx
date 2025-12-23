@@ -36,7 +36,7 @@ export default function LoginPage() {
             password,
         }, {
             onSuccess: () => {
-                router.push("/dashboard");
+                window.location.href = "/dashboard";
             },
             onError: (ctx: { error: { message: string } }) => {
                 setError(ctx.error.message);
