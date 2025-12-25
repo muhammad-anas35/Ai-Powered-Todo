@@ -20,3 +20,7 @@ export function CardTitle({ className, children }: { className?: string, childre
 export function CardContent({ className, children }: { className?: string, children: React.ReactNode }) {
     return <div className={cn("p-6 pt-0", className)}>{children}</div>
 }
+
+export function CardFooter({ className, children }: { className?: string, children: React.ReactNode }) {
+    return <div className={cn("flex items-center p-6 pt-0", className)}>{children}</div>
+}
