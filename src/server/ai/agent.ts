@@ -12,14 +12,14 @@ import { toolsImplementation } from "./tools";
 /* Global configuration */
 
 setTracingDisabled(true);
-setDefaultOpenAIKey(process.env.GOOGLE_API_KEY!);
+setDefaultOpenAIKey("chat_completions");
 
-if (!process.env.GOOGLE_API_KEY) {
-    throw new Error("Missing GOOGLE_API_KEY");
+if (!process.env.OPENAI_API_KEY) {
+    throw new Error("Missing OPENAI_API_KEY");
 }
 
 const geminiClient = new OpenAI({
-    apiKey: process.env.GOOGLE_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY,
     baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
 });
 
@@ -37,7 +37,17 @@ export function createAgent(userId: string) {
             content: z.string().describe("The content of the task"),
             priority: z.enum(["low", "medium", "high"]).optional(),
         }),
-        execute: tools.createTodo,
+        execute: async (args) => {
+            console.log("🛠️ createTodo called with:", JSON.stringify(args, null, 2));
+            try {
+                const result = await tools.createTodo(args);
+                console.log("✅ createTodo success:", result);
+                return result;
+            } catch (error) {
+                console.error("❌ createTodo failed:", error);
+                throw error;
+            }
+        },
     });
 
     const deleteTodoTool = tool({
@@ -46,7 +56,15 @@ export function createAgent(userId: string) {
         parameters: z.object({
             id: z.string().describe("The UUID of the todo"),
         }),
-        execute: tools.deleteTodo,
+        execute: async (args) => {
+            console.log("Executing deleteTodo with args:", args);
+            try {
+                return await tools.deleteTodo(args);
+            } catch (error) {
+                console.error("Error in deleteTodo:", error);
+                throw error;
+            }
+        },
     });
 
     const updateTodoTool = tool({
@@ -56,14 +74,30 @@ export function createAgent(userId: string) {
             id: z.string(),
             isCompleted: z.boolean(),
         }),
-        execute: tools.updateTodo,
+        execute: async (args) => {
+            console.log("Executing updateTodo with args:", args);
+            try {
+                return await tools.updateTodo(args);
+            } catch (error) {
+                console.error("Error in updateTodo:", error);
+                throw error;
+            }
+        },
     });
 
     const getTodosTool = tool({
         name: "getTodos",
         description: "Get the user's current todo list.",
         parameters: z.object({}),
-        execute: tools.getTodos,
+        execute: async () => {
+            console.log("Executing getTodos");
+            try {
+                return await tools.getTodos();
+            } catch (error) {
+                console.error("Error in getTodos:", error);
+                throw error;
+            }
+        },
     });
 
     return new Agent({
