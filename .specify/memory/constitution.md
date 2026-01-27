@@ -32,6 +32,15 @@
 -   **Streaming**: Use `Suspense` and `loading.tsx` to handle async data fetching states gracefully.
 -   **Font Optimization**: Use `next/font` for zero layout shift.
 
+### VI. OpenAI Agents & Orchestration
+**Standardized, Orchestrated, and Binded.**
+### VI. OpenAI Agents & Orchestration
+**Standardized, Orchestrated, and Binded.**
+-   **Agent Definition**: Agents are defined using the `@openai/agents` SDK. They must possess explicit **Instructions** and **Tools**.
+-   **Orchestration**: Use the SDK's native `Agent` and `Runner` classes. Trust the SDK's internal loop.
+-   **Stack Binding**: Functions passed to the Agent must be Server Actions or strictly typed wrappers.
+-   **Authorization**: The Agent must be initialized with the user's context (e.g., `userId`).
+
 ## Development Workflow
 
 ### 1. Planning Phase (SDD)
